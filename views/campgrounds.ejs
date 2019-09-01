@@ -1,0 +1,112 @@
+<% include partials/header %>
+
+<!--
+<div class="container">
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+
+-->
+<div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="/">Men</a>
+            <a class="navbar-brand" href="/">Women</a>
+            <a class="navbar-brand" href="/">Kids</a>
+            <a class="navbar-brand" href="/">Others</a>
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">Search</span>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <div class="jumbotron">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="http://www.freepngclipart.com/download/woman/74643-and-woman-shopping-men-animation-women.png" height="300" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="http://www.freepngclipart.com/download/woman/74643-and-woman-shopping-men-animation-women.png" height="300" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="http://www.freepngclipart.com/download/woman/74643-and-woman-shopping-men-animation-women.png" height="300" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Top Collections</h1>
+        </div>
+    </header>
+</div>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome to JustCotton!!</h1>
+            <p>Exciting Deals</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="/campgrounds/new">Add New Campground</a>
+            </p>
+        </div>
+    </header>
+
+    <style type="text/css">
+    </style>
+
+    <div class="row" style="display:flex; flex-wrap: wrap">
+        <% campgrounds.forEach((campground) => { %>
+            <div class="col-md-4 col-sm-6">
+                <img src="<%= campground.image%>" class="img-thumbnail">
+                <div class="caption">
+                    <h4> <%= campground.name%></h4>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <div class="row" style="display:flex; flex-wrap: wrap">
+        <% campgrounds.forEach((campground) => { %>
+            <div class="col-md-4 col-sm-6">
+                <img src="<%= campground.image%>" class="img-thumbnail">
+                <div class="caption">
+                    <h4> <%= campground.name%></h4>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <div class="row" style="display:flex; flex-wrap: wrap">
+        <% campgrounds.forEach((campground) => { %>
+            <div class="col-md-4 col-sm-6">
+                <img src="<%= campground.image%>" class="img-thumbnail">
+                <div class="caption">
+                    <h4> <%= campground.name%></h4>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<% include partials/footer%>
