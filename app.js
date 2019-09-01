@@ -11,27 +11,27 @@ app.set('view engine', 'ejs');
 
 //SCHEMA SETUP
 
-let campgroundSchema = new mongoose.Schema({
+let collectionsSchema = new mongoose.Schema({
     name:String,
         image: String
 });
 
 
-let Campground = mongoose.model("Campground", campgroundSchema);
+let Collections = mongoose.model("Collections", collectionsSchema);
 
-Campground.create(
+Collections.create(
     {
         name: "Salmon Greek",
         image:"https://cdn.pixabay.com/photo/2019/08/08/13/52/elephant-4393034__340.jpg"
-    },(err, campground) => {
+    },(err, collection) => {
         if(err)
         {
             console.log(err);
         }
         else
         {
-            console.log("Newly created campgrounds");
-            console.log(campground);
+            console.log("Newly created collections");
+            console.log(collection);
         }
     }
 );
@@ -40,26 +40,26 @@ app.get("/", (req, res) => {
    res.render("landing");
 });
 
-let campgrounds = [
+let collections = [
     {name: "Men", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoecTctlgaOBnK6RjU0WaMQLrGqC6HzAqMZjcBvkut97HYt3r1ZwKK4t9h"},
     {name: "Women ", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzZhQrC9BsiitwWhhZmuJItSjT7_nI1_NCncds7nxA0waaAFw5"},
     {name: "Kids", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTJhE-tk8T6oOONZDh0sHA3v6Uov7SaZyC1Pe5ODci6kTOuMx6Pw"},
 ];
 
-app.get("/campgrounds", (req, res) => {
-    res.render("campgrounds", {campgrounds:campgrounds});
+app.get("/collections", (req, res) => {
+    res.render("collections", {collections:collections});
 });
 
-app.post("/campgrounds",(req, res) => {
+app.post("/collections",(req, res) => {
     let name = req.body.name;
     let image = req.body.image;
-    let newCampground = {name:name, image:image};
-    campgrounds.push(newCampground);
+    let newCollection = {name:name, image:image};
+    collections.push(newCollection);
 
-    res.redirect("/campgrounds");
+    res.redirect("/collections");
 });
 
-app.get("/campgrounds/new", (req, res) => {
+app.get("/collections/new", (req, res) => {
    res.render("new.ejs");
 });
 
