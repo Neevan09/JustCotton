@@ -81,7 +81,7 @@ app.post("/collections",(req, res) => {
             console.log(err);
         }
         else {
-            res.redirect("/collections");
+            res.redirect("/");
             console.log(newlyCreated);
         }
     });
