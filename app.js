@@ -54,7 +54,7 @@ app.get("/", (req, res) => {
    res.render("/", {collections: collections});
 });*/
 //Index - Show all the collections.
-app.get("/collections", (req, res) => {
+app.get("/", (req, res) => {
 
     Collections.find((err, allCollections) => {
         if(err)

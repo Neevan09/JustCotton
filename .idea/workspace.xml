@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7e35903-bd6e-42eb-a9b2-93c846343bd4" name="Default Changelist" comment="Home page - changes.">
-      <change afterPath="$PROJECT_DIR$/views/show.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/collections.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/landing.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/new.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/new.ejs" afterDir="false" />
-    </list>
+    <list default="true" id="e7e35903-bd6e-42eb-a9b2-93c846343bd4" name="Default Changelist" comment="Home page - changes." />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="36" column="5" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="51">
+              <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -80,9 +73,9 @@
         <option value="$PROJECT_DIR$/views/collections.ejs" />
         <option value="$PROJECT_DIR$/views/partials/show.ejs" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/show.ejs" />
         <option value="$PROJECT_DIR$/views/new.ejs" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -161,7 +154,7 @@
       <workItem from="1567350247476" duration="7364000" />
       <workItem from="1567779696776" duration="613000" />
       <workItem from="1567808814294" duration="17000" />
-      <workItem from="1567813753121" duration="12502000" />
+      <workItem from="1567813753121" duration="12778000" />
     </task>
     <task id="LOCAL-00001" summary="Home page - changes to the title text.">
       <created>1567814959895</created>
@@ -181,10 +174,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20496000" />
+    <option name="totallyTimeSpent" value="20772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14899328" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -258,8 +252,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="51">
+          <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
         </state>
       </provider>
     </entry>
