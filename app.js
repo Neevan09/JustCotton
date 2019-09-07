@@ -9,13 +9,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
 
-//SCHEMA SETUP
-
+//SCHEMA SETUP - Adding new images.
 let collectionsSchema = new mongoose.Schema({
     name:String,
-        image: String
+    image: String
 });
-
 
 let Collections = mongoose.model("Collections", collectionsSchema);
 
@@ -48,6 +46,11 @@ let collections = [
     {name: "Women ", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzZhQrC9BsiitwWhhZmuJItSjT7_nI1_NCncds7nxA0waaAFw5"},
     {name: "Kids", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTJhE-tk8T6oOONZDh0sHA3v6Uov7SaZyC1Pe5ODci6kTOuMx6Pw"},
 ];
+
+
+app.get("/", (req, res) => {
+   res.render("collections", {collections: collections});
+});
 
 app.get("/collections", (req, res) => {
     res.render("collections", {collections:collections});
