@@ -36,9 +36,12 @@ Collections.create(
     }
 );
 
+//Mark: This was initial howe page landing setup.
+
+/*
 app.get("/", (req, res) => {
    res.render("landing");
-});
+});*/
 
 let collections = [
     {name: "Men", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoecTctlgaOBnK6RjU0WaMQLrGqC6HzAqMZjcBvkut97HYt3r1ZwKK4t9h"},
