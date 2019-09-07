@@ -84,26 +84,9 @@
                 <div class="caption">
                     <h4> <%= collection.name%></h4>
                 </div>
-            </div>
-        <% }) %>
-    </div>
-    <div class="row" style="display:flex; flex-wrap: wrap">
-        <% collections.forEach((collection) => { %>
-            <div class="col-md-4 col-sm-6">
-                <img src="<%= collection.image%>" class="img-thumbnail">
-                <div class="caption">
-                    <h4> <%= collection.name%></h4>
-                </div>
-            </div>
-        <% }) %>
-    </div>
-    <div class="row" style="display:flex; flex-wrap: wrap">
-        <% collections.forEach((collection) => { %>
-            <div class="col-md-4 col-sm-6">
-                <img src="<%= collection.image%>" class="img-thumbnail">
-                <div class="caption">
-                    <h4> <%= collection.name%></h4>
-                </div>
+                <p>
+                    <a href="/collections/<%= collection._id %>" class="btn btn-primary">More Info</a>
+                </p>
             </div>
         <% }) %>
     </div>
