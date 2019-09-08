@@ -3,7 +3,33 @@ const express     = require('express'),
       bodyParser  = require('body-parser'),
       mongoose    = require('mongoose');
 
-mongoose.connect("mongodb://localhost/justcotton");
+mongoose.connect("mongodb+srv://ns7767:FOOTball1722@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority" || "mongodb://localhost/justcotton",
+{
+    useNewUrlParser: true
+});
+
+
+//const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/justcotton';
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://ns7767:<password>@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//     //const collection = client.db("test").collection("devices");
+//     // perform actions on the collection object
+//     client.close();
+// });
+
+
+// (async() => {
+//     const url = "mongodb+srv://ns7767:FOOTball1722@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority";
+//     const connection = await mongoose.connect(url);
+//     const db = connection.db('myDB');
+//     collection = db.collection('todos');
+// })();
+
+//mongoose.connect(databaseUri, { useNewUrlParser: true });
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
@@ -18,6 +44,7 @@ let collectionsSchema = new mongoose.Schema({
 
 let Collections = mongoose.model("Collections", collectionsSchema);
 
+module.exports = Collections;
 // Collections.create(
 //     {
 //         name: "Men",
@@ -69,11 +96,26 @@ app.get("/", (req, res) => {
 });
 
 //Create - add new collections to the database.
-app.post("/collections",(req, res) => {
+app.post("/",(req, res) => {
     let name = req.body.name;
     let image = req.body.image;
     let description = req.body.description;
     let newCollection = {name:name, image:image, description:description};
+
+    const newCollections = new Collections({
+        name: name,
+        image: image,
+        description: description
+    });
+
+    newCollections
+        .save()
+        .then((result) => {
+            console.log(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
     //Create a new collection and save to DB
     Collections.create(newCollection, (err, newlyCreated) => {
@@ -95,18 +137,34 @@ app.get("/collections/new", (req, res) => {
 
 
 //Show the description of the new collections.
+// app.get("/collections/:id",(req, res) => {
+//     let id = req.params.id;
+//     Collections.findById(id,(err, showCollection) => {
+//        if(err)
+//        {
+//            console.log(err);
+//        }
+//        else
+//        {
+//            res.render("show", {collection: showCollection});
+//        }
+//     });
+// });
+
 app.get("/collections/:id",(req, res) => {
-    Collections.findById(req.params.id,(err, showCollection) => {
-       if(err)
-       {
-           console.log(err);
-       }
-       else
-       {
-           res.render("show", {collection: showCollection});
-       }
-    });
+    let id = req.params.id;
+    Collections.findById(id)
+        .exec()
+        .then(doc => {
+            console.log(doc);
+            res.render("show", {collection: showCollection});
+        })
+        .catch(err => {
+            console.log(err);
+        })
 });
+
+
 
 app.listen(process.env.PORT || 3000, () => {
     console.log("JustCotton server is started");
