@@ -3,37 +3,14 @@ const express     = require('express'),
       bodyParser  = require('body-parser'),
       mongoose    = require('mongoose');
 
-mongoose.connect("mongodb+srv://ns7767:FOOTball1722@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority" || "mongodb://localhost/justcotton",
+const url = "mongodb+srv://ns7767:FOOTball1722@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority";
+mongoose.connect(url || "mongodb://localhost/justcotton",
 {
     useNewUrlParser: true
 });
 
-
-//const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/justcotton';
-
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://ns7767:<password>@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//     //const collection = client.db("test").collection("devices");
-//     // perform actions on the collection object
-//     client.close();
-// });
-
-
-// (async() => {
-//     const url = "mongodb+srv://ns7767:FOOTball1722@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority";
-//     const connection = await mongoose.connect(url);
-//     const db = connection.db('myDB');
-//     collection = db.collection('todos');
-// })();
-
-//mongoose.connect(databaseUri, { useNewUrlParser: true });
-
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
-
 
 //SCHEMA SETUP - Adding new images.
 let collectionsSchema = new mongoose.Schema({
@@ -45,6 +22,7 @@ let collectionsSchema = new mongoose.Schema({
 let Collections = mongoose.model("Collections", collectionsSchema);
 
 module.exports = Collections;
+
 // Collections.create(
 //     {
 //         name: "Men",
@@ -62,24 +40,8 @@ module.exports = Collections;
 //         }
 //     }
 // );
+//
 
-//Mark: This was initial howe page landing setup.
-
-/*
-app.get("/", (req, res) => {
-   res.render("landing");
-});*/
-
-/*let collections = [
-    {name: "Men", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoecTctlgaOBnK6RjU0WaMQLrGqC6HzAqMZjcBvkut97HYt3r1ZwKK4t9h"},
-    {name: "Women ", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzZhQrC9BsiitwWhhZmuJItSjT7_nI1_NCncds7nxA0waaAFw5"},
-    {name: "Kids", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTJhE-tk8T6oOONZDh0sHA3v6Uov7SaZyC1Pe5ODci6kTOuMx6Pw"},
-];
-*/
-
-/*app.get("/", (req, res) => {
-   res.render("/", {collections: collections});
-});*/
 //Index - Show all the collections.
 app.get("/", (req, res) => {
 
@@ -129,42 +91,35 @@ app.post("/",(req, res) => {
     });
 });
 
-
 //New - show form to create the collections.
 app.get("/collections/new", (req, res) => {
    res.render("new");
 });
-
-
 //Show the description of the new collections.
-// app.get("/collections/:id",(req, res) => {
-//     let id = req.params.id;
-//     Collections.findById(id,(err, showCollection) => {
-//        if(err)
-//        {
-//            console.log(err);
-//        }
-//        else
-//        {
-//            res.render("show", {collection: showCollection});
-//        }
-//     });
-// });
-
 app.get("/collections/:id",(req, res) => {
     let id = req.params.id;
-    Collections.findById(id)
-        .exec()
-        .then(doc => {
-            console.log(doc);
-            res.render("show", {collection: showCollection});
-        })
-        .catch(err => {
+
+    Collections.findById(id,(err, showCollection) => {
+        if(err)
+        {
             console.log(err);
-        })
+        }
+        else
+        {
+            res.render("show", {collection: showCollection});
+        }
+    });
+
+    // Collections.findById(id,showCollection)
+    //     .exec()
+    //     .then(doc => {
+    //         console.log(doc);
+    //         res.render("show", {collection: showCollection});
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     })
 });
-
-
 
 app.listen(process.env.PORT || 3000, () => {
     console.log("JustCotton server is started");

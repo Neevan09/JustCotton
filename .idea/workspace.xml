@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7e35903-bd6e-42eb-a9b2-93c846343bd4" name="Default Changelist" comment="Home page - changes.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="160" column="10" lean-forward="true" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
+            <state relative-caret-position="307">
+              <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -33,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1827">
-              <caret line="87" column="41" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="41" />
+              <caret line="87" column="33" lean-forward="true" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/show.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="126">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -50,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/new.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="34">
               <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
             </state>
           </provider>
@@ -63,6 +63,7 @@
       <find>collectionsSchema</find>
       <find>camp</find>
       <find>/collections</find>
+      <find>collections</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -75,9 +76,9 @@
         <option value="$PROJECT_DIR$/views/landing.ejs" />
         <option value="$PROJECT_DIR$/views/collections.ejs" />
         <option value="$PROJECT_DIR$/views/partials/show.ejs" />
+        <option value="$PROJECT_DIR$/views/new.ejs" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/views/show.ejs" />
-        <option value="$PROJECT_DIR$/views/new.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
@@ -158,7 +159,7 @@
       <workItem from="1567779696776" duration="613000" />
       <workItem from="1567808814294" duration="17000" />
       <workItem from="1567813753121" duration="13671000" />
-      <workItem from="1567916029643" duration="10351000" />
+      <workItem from="1567916029643" duration="18900000" />
     </task>
     <task id="LOCAL-00001" summary="Home page - changes to the title text.">
       <created>1567814959895</created>
@@ -178,10 +179,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32016000" />
+    <option name="totallyTimeSpent" value="40565000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14563759" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -198,7 +200,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.36402267" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33427763" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -220,31 +222,31 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+    <entry file="file://$PROJECT_DIR$/views/new.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1827">
-          <caret line="87" column="41" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="41" />
+        <state relative-caret-position="34">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/show.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="126">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/new.ejs">
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        <state relative-caret-position="1827">
+          <caret line="87" column="33" lean-forward="true" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="160" column="10" lean-forward="true" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
+        <state relative-caret-position="307">
+          <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
         </state>
       </provider>
     </entry>
