@@ -1,7 +1,11 @@
 const express     = require('express'),
       app         = express(),
       bodyParser  = require('body-parser'),
-      mongoose    = require('mongoose');
+      mongoose    = require('mongoose'),
+      Collections = require('./models/collections'),
+      seedDB      = require('./seeds');
+
+seedDB();
 
 const url = "mongodb+srv://ns7767:FOOTball1722@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority";
 mongoose.connect(url || "mongodb://localhost/justcotton",
@@ -12,35 +16,6 @@ mongoose.connect(url || "mongodb://localhost/justcotton",
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
-//SCHEMA SETUP - Adding new images.
-let collectionsSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-let Collections = mongoose.model("Collections", collectionsSchema);
-
-module.exports = Collections;
-
-// Collections.create(
-//     {
-//         name: "Men",
-//         image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTJhE-tk8T6oOONZDh0sHA3v6Uov7SaZyC1Pe5ODci6kTOuMx6Pw",
-//         description: "This Zip-Up Hoodie with adjustable drawstring lets you lock in the warmth around your head, Sleeve Cuffs and Waistband help keep you warm, Kanga Pockets keep your hands warm and the inner pocket let you store valuables in this Hooded Sweatshirt"
-//     },(err, collection) => {
-//         if(err)
-//         {
-//             console.log(err);
-//         }
-//         else
-//         {
-//             console.log("Newly created collections");
-//             console.log(collection);
-//         }
-//     }
-// );
-//
 
 //Index - Show all the collections.
 app.get("/", (req, res) => {
@@ -62,50 +37,42 @@ app.post("/",(req, res) => {
     let name = req.body.name;
     let image = req.body.image;
     let description = req.body.description;
-    let newCollection = {name:name, image:image, description:description};
+    //let newCollection = {name:name, image:image, description:description};
 
     const newCollections = new Collections({
         name: name,
         image: image,
         description: description
     });
-
+    console.log("newCollections:    "+ newCollections);
     newCollections
         .save()
         .then((result) => {
-            console.log(result);
+            //console.log("result:    "+ result);
+            res.redirect("/");
         })
         .catch((err) => {
             console.log(err);
         });
-
-    //Create a new collection and save to DB
-    Collections.create(newCollection, (err, newlyCreated) => {
-        if(err){
-            console.log(err);
-        }
-        else {
-            res.redirect("/");
-            console.log(newlyCreated);
-        }
-    });
 });
 
 //New - show form to create the collections.
 app.get("/collections/new", (req, res) => {
    res.render("new");
 });
+
 //Show the description of the new collections.
 app.get("/collections/:id",(req, res) => {
     let id = req.params.id;
 
-    Collections.findById(id,(err, showCollection) => {
+    Collections.findById(id).populate("comments").exec((err, showCollection) => {
         if(err)
         {
             console.log(err);
         }
         else
         {
+            console.log("showCollection:    "+showCollection);
             res.render("show", {collection: showCollection});
         }
     });

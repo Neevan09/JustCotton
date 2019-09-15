@@ -6,4 +6,10 @@
 
 <p><%= collection.description %></p>
 
+<P><% collection.comments.forEach((comment)=>{%></P>
+    <p>
+        <strong> <%= comment.author %> </strong> - <%= comment.text %>
+    </p>
+<p><%})%></p>
+
 <% include partials/footer%>
