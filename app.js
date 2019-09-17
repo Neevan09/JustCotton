@@ -3,6 +3,7 @@ const express     = require('express'),
       bodyParser  = require('body-parser'),
       mongoose    = require('mongoose'),
       Collections = require('./models/collections'),
+      Comment     = require('./models/comments'),
       seedDB      = require('./seeds');
 
 seedDB();
@@ -13,21 +14,19 @@ mongoose.connect(url || "mongodb://localhost/justcotton",
     useNewUrlParser: true
 });
 
-app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 
 //Index - Show all the collections.
 app.get("/", (req, res) => {
 
     Collections.find((err, allCollections) => {
-        if(err)
-        {
+        if(err){
             console.log("Something went wrong");
-        }
-        else
-        {
-            res.render("index", {collections:allCollections});
+        } else {
+            res.render("collections/index", {collections:allCollections});
         }
     });
 });
@@ -44,7 +43,7 @@ app.post("/",(req, res) => {
         image: image,
         description: description
     });
-    console.log("newCollections:    "+ newCollections);
+    //console.log("newCollections:    "+ newCollections);
     newCollections
         .save()
         .then((result) => {
@@ -58,7 +57,7 @@ app.post("/",(req, res) => {
 
 //New - show form to create the collections.
 app.get("/collections/new", (req, res) => {
-   res.render("new");
+   res.render("collections/new");
 });
 
 //Show the description of the new collections.
@@ -66,27 +65,52 @@ app.get("/collections/:id",(req, res) => {
     let id = req.params.id;
 
     Collections.findById(id).populate("comments").exec((err, showCollection) => {
-        if(err)
-        {
+        if(err){
             console.log(err);
-        }
-        else
-        {
-            console.log("showCollection:    "+showCollection);
-            res.render("show", {collection: showCollection});
+        }else {
+            //console.log("showCollection:    "+showCollection);
+            res.render("collections/show", {collection: showCollection});
         }
     });
-
-    // Collections.findById(id,showCollection)
-    //     .exec()
-    //     .then(doc => {
-    //         console.log(doc);
-    //         res.render("show", {collection: showCollection});
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     })
 });
+
+
+//COMMENTS ROUTE
+app.get("/collections/:id/comments/new", (req, res) => {
+
+    const id = req.params.id;
+    Collections.findById(id, (err, showComment) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.render("comments/new", {collection: showComment});
+        }
+    });
+});
+
+//POST COMMENTS
+app.post("/collections/:id/comments", (req, res) => {
+   const id = req.params.id;
+   Collections.findById(id, (err, collections) => {
+       if(err){
+           console.log(err);
+           res.redirect("/collections");
+       }else {
+            Comment.create(req.body.comment, (err, comment) =>{
+                console.log(req.body.comment);
+               if(err){
+                   console.log(err);
+               }else{
+                   collections.comments.push(comment);
+                   collections.save();
+                   res.redirect("/collections/"+collections._id);
+               }
+           console.log("Comments:   "+req.body.comment);
+            });
+       }
+   })
+});
+
 
 app.listen(process.env.PORT || 3000, () => {
     console.log("JustCotton server is started");

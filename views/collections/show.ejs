@@ -1,4 +1,4 @@
-<% include partials/header%>
+<% include ../partials/header %>
 
 <h1><%= collection.name %></h1>
 
@@ -6,10 +6,14 @@
 
 <p><%= collection.description %></p>
 
+<p>
+    <a class="btn btn-success" href="/collections/<%=collection._id%>/comments/new">Add new comment</a>
+</p>
+
 <P><% collection.comments.forEach((comment)=>{%></P>
     <p>
         <strong> <%= comment.author %> </strong> - <%= comment.text %>
     </p>
 <p><%})%></p>
 
-<% include partials/footer%>
+<% include ../partials/footer %>

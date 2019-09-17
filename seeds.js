@@ -19,14 +19,14 @@ function seedDB()
         console.log("Error: "+err);
         }
 
-        console.log("remove collections");
+        //console.log("remove collections");
         //Added new collections
         data.forEach(seed => {
             Collections.create(seed, (err,collection) => {
                 if(err){
                     console.log(err);
                 }  else{
-                    console.log("Added new collections");
+                    //console.log("Added new collections");
                     //Adding Comments
                     Comment.create({text:"The product was good fit!!",author:"Naveen"}, (err, comment) => {
                         if(err){
@@ -34,7 +34,6 @@ function seedDB()
                         } else{
                             collection.comments.push(comment);
                             collection.save();
-                            console.log("Created new comments");
                         }
                     });
                 }
