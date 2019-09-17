@@ -9,6 +9,7 @@ const express     = require('express'),
 seedDB();
 
 const url = "mongodb+srv://ns7767:FOOTball1722@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority";
+
 mongoose.connect(url || "mongodb://localhost/justcotton",
 {
     useNewUrlParser: true
@@ -16,7 +17,7 @@ mongoose.connect(url || "mongodb://localhost/justcotton",
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(express.static(__dirname + "/public"));
 
 
 //Index - Show all the collections.

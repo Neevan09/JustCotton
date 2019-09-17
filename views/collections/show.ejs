@@ -1,19 +1,43 @@
 <% include ../partials/header %>
 
-<h1><%= collection.name %></h1>
+<div class="container">
+    <div class="row">
+       <div class="col-md-12">
+            <div class="thumbnail">
+                <img class="img-fluid" alt="Sample photo" src="<%= collection.image %>">
+                <div class="caption">
+                    <h4 class="float-right">$19.99</h4>
+                    <h4 class="pull-left"><%= collection.name %></h4>
+                    <p><%= collection.description %></p>
+                </div>
+            </div>
 
-<img src="<%= collection.image %>">
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/collections/<%=collection._id%>/comments/new">Add new comment</a>
+                </div>
+                <hr>
+                <P><% collection.comments.forEach((comment)=>{%></P>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong> <%= comment.author %> </strong>
+                        <span class="float-right">10 days ago</span>
+                        <p>
+                            <%= comment.text %>
+                        </p>
+                    </div>
+                </div>
 
-<p><%= collection.description %></p>
+                <p><%})%></p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<p>
-    <a class="btn btn-success" href="/collections/<%=collection._id%>/comments/new">Add new comment</a>
-</p>
 
-<P><% collection.comments.forEach((comment)=>{%></P>
-    <p>
-        <strong> <%= comment.author %> </strong> - <%= comment.text %>
-    </p>
-<p><%})%></p>
+
+
+
+
 
 <% include ../partials/footer %>

@@ -1,0 +1,12 @@
+.thumbnail img{
+    width:50%;
+}
+
+.thumbnail .caption{
+    padding:20px;
+}
+
+
+.row{
+    padding:20px;
+}
