@@ -10,35 +10,33 @@
 
     </head>
     <body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <span class="oi oi-home" title="person" aria-hidden="true"></span>
         <a class="navbar-brand" href="/">JustCotton</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto"> </ul>
-            <a class="navbar-brand" href="/">Login</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <a class="navbar-brand" href="/">Sign up</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <a class="navbar-brand" href="/">Log out</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <%  if(!currentUser){%>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-brand">
+                    <a class="navbar-brand" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/register">Sign Up</a>
+                </li>
+            </ul>
+            <% } else{%>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="#"><%= currentUser.username %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="/logout">Log out</a>
+                        </li>
+                    </ul>
+            <%  }%>
         </div>
     </nav>
 
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
