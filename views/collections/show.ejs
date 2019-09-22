@@ -17,27 +17,21 @@
                     <a class="btn btn-success" href="/collections/<%=collection._id%>/comments/new">Add new comment</a>
                 </div>
                 <hr>
-                <P><% collection.comments.forEach((comment)=>{%></P>
+                <P><% collection.comments.forEach(function(comment){%></P>
                 <div class="row">
                     <div class="col-md-12">
-                        <strong> <%= comment.author %> </strong>
+                        <strong> <%= comment.author.username %> </strong>
                         <span class="float-right">10 days ago</span>
                         <p>
                             <%= comment.text %>
                         </p>
                     </div>
                 </div>
-
                 <p><%})%></p>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
 
 
 <% include ../partials/footer %>
