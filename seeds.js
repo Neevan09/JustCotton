@@ -10,6 +10,9 @@ const data = [{name:"Mens",
         description:"This is Women's Collections"},
     {name:"Kids",
         image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsUpt04arbKwAzePJ9ICjc0BAfugkY35NBtIb1uVQQa-QQRhl",
+        description:"This is Kids's Collections"},
+    {name:"Home Furnishings",
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsUpt04arbKwAzePJ9ICjc0BAfugkY35NBtIb1uVQQa-QQRhl",
         description:"This is Kids's Collections"}];
 
 function seedDB()

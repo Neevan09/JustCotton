@@ -3,15 +3,51 @@
 <div class="container">
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="/Mens">Men</a>
-            <a class="navbar-brand" href="/Kids">Women</a>
-            <a class="navbar-brand" href="/Baby">Kids</a>
-            <a class="navbar-brand" href="/Curtains">Home Furnishings</a>
-        </div>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2">Search</span>
+<!--            <a class="navbar-brand" href="/Mens">Men</a>-->
+<!--            <a class="navbar-brand" href="/Kids">Women</a>-->
+<!--            <a class="navbar-brand" href="/Baby">Kids</a>-->
+<!--            <a class="navbar-brand" href="/Curtains">Home Furnishings</a>-->
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">Search</span>
+                </div>
+            </div>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="/Mens"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mens</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/Mens">Item 1</a>
+                    <a class="dropdown-item" href="/Mens">Item 2</a>
+                    <a class="dropdown-item" href="/Mens">Item 3</a>
+                    <a class="dropdown-item" href="/Mens">Item 4</a>
+                </div>
+            </div>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="/Womens"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Womens</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/Womens">Item 1</a>
+                    <a class="dropdown-item" href="/Womens">Item 2</a>
+                    <a class="dropdown-item" href="/Womens">Item 3</a>
+                    <a class="dropdown-item" href="/Womens">Item 4</a>
+                </div>
+            </div>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="/Kids"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kids</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/Kids">Item 1</a>
+                    <a class="dropdown-item" href="/Kids">Item 2</a>
+                    <a class="dropdown-item" href="/Kids">Item 3</a>
+                    <a class="dropdown-item" href="/Kids">Item 4</a>
+                </div>
+            </div>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="/Curtains"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home Furnishing</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/Curtains">Item 1</a>
+                    <a class="dropdown-item" href="/Curtains">Item 2</a>
+                    <a class="dropdown-item" href="/Curtains">Item 3</a>
+                    <a class="dropdown-item" href="/Curtains">Item 4</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -62,7 +98,7 @@
 
     <div class="row" style="display:flex; flex-wrap: wrap">
         <% collections.forEach((collection) => { %>
-            <div class="col-md-4 col-sm-6">
+            <div class="col-lg-3 col-md-4 col-6">
                 <img src="<%= collection.image%>" class="img-thumbnail">
                 <div class="caption">
                     <h4> <%= collection.name%></h4>
