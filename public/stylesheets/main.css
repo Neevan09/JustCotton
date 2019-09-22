@@ -6,7 +6,22 @@
     padding:20px;
 }
 
-
 .row{
     padding:20px;
+}
+
+.dropdown:hover>.dropdown-menu{
+    display:block;
+}
+
+.dropdown{
+    width:200px;
+}
+
+.dropdown-menu{
+    width:200px;
+}
+
+#indexJumbo{
+    padding: 10px;
 }

@@ -49,16 +49,20 @@ app.get("/Mens", (req,res) => {
    res.render("collections/mens");
 });
 
+app.get("/Womens", (req,res) => {
+    res.render("collections/womens");
+});
+
 app.get("/Kids", (req,res) => {
     res.render("collections/kids");
 });
 
-app.get("/Baby", (req,res) => {
-    res.render("collections/baby");
+app.get("/Homefurnishings", (req,res) => {
+    res.render("collections/homefurnishings");
 });
 
-app.get("/Curtains", (req,res) => {
-    res.render("collections/curtains");
+app.get("/Benefits", (req,res) => {
+    res.render("collections/benefits");
 });
 
 

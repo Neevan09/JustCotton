@@ -1,12 +1,26 @@
 <% include ./partials/header %>
 
-<h1>Register the user!!!</h1>
 
-<form action="/register" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Submit</button>
-</form>
+<!--<form action="/register" method="POST">-->
+<!--    <input type="text" name="username" placeholder="username">-->
+<!--    <input type="password" name="password" placeholder="password">-->
+<!--    <button>Submit</button>-->
+<!--</form>-->
+
+<div class="ui main text container segment">
+    <div class="ui huge header">Register User</div>
+    <form class="ui form" action="/register" method="POST">
+        <div class="field">
+            <label>User Name</label>
+            <input type="text" name="username" placeholder="username">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="password">
+        </div>
+        <button class="ui button" >Submit</button>
+    </form>
+</div>
 
 <% include ./partials/footer %>
 
