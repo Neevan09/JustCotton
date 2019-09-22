@@ -37,9 +37,6 @@ app.use((req, res, next) => {
    next();
 });
 
-
-
-
 app.use(collectionRoutes);
 app.use("/collections/:id/comments",commentRoutes);
 app.use(authRoutes);
