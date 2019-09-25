@@ -7,16 +7,18 @@ const express     = require('express'),
       Collections = require('./models/collections'),
       Comment     = require('./models/comments'),
         User      = require('./models/users'),
-      seedDB      = require('./seeds'),
  collectionRoutes = require('./routes/collections'),
     commentRoutes = require('./routes/comments'),
        authRoutes = require('./routes/auth');
 
-mongoose.connect("mongodb://localhost/justcotton",{useNewUrlParser: true});
+const url = "mongodb+srv://ns7767:FOOTball1722@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority";
+mongoose.connect(url || "mongodb://localhost/justcotton",{useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
-seedDB(); //seed the database
+//seedDB(); //seed the database
+
+
 
 //Passport Configuration
 app.use(require("express-session")({
@@ -36,9 +38,9 @@ app.use((req, res, next) => {
    next();
 });
 
-app.use(collectionRoutes);
+app.use("/",collectionRoutes);
 app.use("/collections/:id/comments",commentRoutes);
-app.use(authRoutes);
+app.use("/", authRoutes);
 
 
 app.get("/Mens", (req,res) => {
