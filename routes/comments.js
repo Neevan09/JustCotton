@@ -5,7 +5,6 @@ const Comment = require('../models/comments');
 
 //New comments
 router.get("/new", isLoggedIn, (req, res) => {
-
     const id = req.params.id;
     Collections.findById(id, (err, showComment) => {
         if(err){
@@ -19,13 +18,14 @@ router.get("/new", isLoggedIn, (req, res) => {
 //Create a new comments
 router.post("/", isLoggedIn, (req, res) => {
     const id = req.params.id;
-    Collections.findById(id, (err, collections) => {
+    Collections.findById(id, (err, newCollection) => {
         if(err){
             console.log(err);
             res.redirect("/collections");
         }else {
+            // console.log("Comment:   "+req.body.comment);
             Comment.create(req.body.comment, (err, comment) =>{
-                //console.log(req.body.comment);
+
                 if(err){
                     console.log(err);
                 }else{
@@ -33,11 +33,14 @@ router.post("/", isLoggedIn, (req, res) => {
                      comment.author.username = req.user.username;
                      comment.save();
 
-                    collections.comments.push(comment);
-                    collections.save();
+                    newCollection.comments.push(comment);
+                    newCollection.save();
 
-                    console.log(req.user.text);
-                    res.redirect("/collections/"+collections._id);
+               // console.log("Comments:  "+newCollection.comments);
+                 //   console.log("-----------------------Author---------------------");
+
+                    console.log("comment"+comment);
+                    res.redirect("/collections/"+newCollection._id);
                 }
             });
         }

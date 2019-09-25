@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/users');
 const passport = require('passport');
+const User = require('../models/users');
+
 
 //AUTH ROUTES
 router.get("/register",(req, res) => {
