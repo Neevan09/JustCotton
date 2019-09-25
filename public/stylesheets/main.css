@@ -25,3 +25,9 @@
 #indexJumbo{
     padding: 10px;
 }
+
+
+.username{
+    font-size: 18px;
+    text-transform: capitalize;
+}
