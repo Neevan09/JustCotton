@@ -12,8 +12,7 @@ const express     = require('express'),
     commentRoutes = require('./routes/comments'),
        authRoutes = require('./routes/auth');
 
-const url = "mongodb+srv://ns7767:FOOTball1722@justcottoncluster-1k4s5.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(url || "mongodb://localhost/justcotton",{useNewUrlParser: true});
+mongoose.connect("mongodb://localhost/justcotton",{useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
