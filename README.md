@@ -2,7 +2,7 @@
 
   JustCotton is a Online Shopping For Men, Women, Kids.
 
-# Full Stack Mean Developer
+# Full Stack MERN Developer
 
   Remotely working as an Independent developer in "Just Cotton", developing the online shopping website portal.
 
