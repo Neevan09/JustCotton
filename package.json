@@ -21,6 +21,6 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "react": "^16.13.1",
-    "storybook": "^6.0.20"
+    "storybook": "^8.4.7"
   }
 }
